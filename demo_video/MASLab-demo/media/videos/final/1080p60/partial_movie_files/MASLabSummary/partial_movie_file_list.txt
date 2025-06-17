@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/hendrick/Desktop/SJTU-Agent/video-demo/MASLab-demo/media/videos/final/1080p60/partial_movie_files/MASLabSummary/3529212410_3735191979_223132457.mp4'
+file 'file:/Users/hendrick/Desktop/SJTU-Agent/video-demo/MASLab-demo/media/videos/final/1080p60/partial_movie_files/MASLabSummary/3040924799_2408024828_2952093153.mp4'
+file 'file:/Users/hendrick/Desktop/SJTU-Agent/video-demo/MASLab-demo/media/videos/final/1080p60/partial_movie_files/MASLabSummary/3040924799_760326707_2445645754.mp4'
+file 'file:/Users/hendrick/Desktop/SJTU-Agent/video-demo/MASLab-demo/media/videos/final/1080p60/partial_movie_files/MASLabSummary/3040924799_2816029268_1666280314.mp4'
+file 'file:/Users/hendrick/Desktop/SJTU-Agent/video-demo/MASLab-demo/media/videos/final/1080p60/partial_movie_files/MASLabSummary/3040924799_3201849554_2526833612.mp4'
+file 'file:/Users/hendrick/Desktop/SJTU-Agent/video-demo/MASLab-demo/media/videos/final/1080p60/partial_movie_files/MASLabSummary/3040924799_2883059246_1674387144.mp4'
+file 'file:/Users/hendrick/Desktop/SJTU-Agent/video-demo/MASLab-demo/media/videos/final/1080p60/partial_movie_files/MASLabSummary/3040924799_2408024828_3027330512.mp4'

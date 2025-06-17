@@ -1,0 +1,8 @@
+# ChatDev: Communicative Agents for Software Development  
+
+Chen Qian⋆ Wei Liu⋆ Hongzhang Liu♠ Nuo Chen⋆ Yufan Dang⋆ Jiahao $\mathbf { L i ^ { \star } }$ Cheng Yang♣ Weize Chen⋆ Yusheng $\mathbf { S } \mathbf { u } ^ { \star }$ Xin Cong⋆ Juyuan $\mathbf { X } \mathbf { u } ^ { \star }$ Dahai Li♦ Zhiyuan Liu⋆B Maosong Sun⋆B ⋆Tsinghua University ♠The University of Sydney ♣BUPT ♦Modelbest Inc. qianc62@gmail.com liuzy@tsinghua.edu.cn sms@tsinghua.edu.cn  
+
+# Abstract  
+
+Software development is a complex task that necessitates cooperation among multiple members with diverse skills. Numerous studies used deep learning to improve specific phases in a waterfall model, such as design, coding, and testing. However, the deep learning model in each phase requires unique designs, leading to technical inconsistencies across various phases, which results in a fragmented and ineffective development process. In this paper, we introduce ChatDev, a chat-powered software development framework in which specialized agents driven by large language models (LLMs) are guided in what to communicate (via chat chain) and how to communicate (via communicative dehallucination). These agents actively contribute to the design, coding, and testing phases through unified language-based communication, with solutions derived from their multi-turn dialogues. We found their utilization of natural language is advantageous for system design, and communicating in programming language proves helpful in debugging. This paradigm demonstrates how linguistic communication facilitates multi-agent collaboration, establishing language as a unifying bridge for autonomous task-solving among LLM agents. The code and data are available at https://github.com/OpenBMB/ChatDev.  
+

@@ -1,0 +1,4 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/hendrick/Desktop/SJTU-Agent/video-demo/MASLab-demo/media/videos/conclusion/1080p60/partial_movie_files/MASLabSummarySlide/3977891868_4273535954_223132457.mp4'
+file 'file:/Users/hendrick/Desktop/SJTU-Agent/video-demo/MASLab-demo/media/videos/conclusion/1080p60/partial_movie_files/MASLabSummarySlide/2852726489_2439326181_2467117412.mp4'
+file 'file:/Users/hendrick/Desktop/SJTU-Agent/video-demo/MASLab-demo/media/videos/conclusion/1080p60/partial_movie_files/MASLabSummarySlide/2852726489_1734327179_2884654453.mp4'
