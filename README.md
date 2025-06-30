@@ -7,7 +7,7 @@
    ```bash
    pip install Pillow
    ```
-3. **API密钥**: 需要配置GPT API密钥（在脚本中修改），`Method_Brain.py`、`Method_Coder.py`、`Method_Speecher.py`中需要配置
+3. **API密钥**: 需要配置GPT API密钥，`config.json`中需要配置
 4. **输入文件**: Markdown 格式的论文文件
 5. **图片目录**: 论文相关的图片文件夹
 

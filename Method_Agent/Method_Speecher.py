@@ -1,7 +1,22 @@
 import os
+import json
 from api_call import process_text_with_images
 import argparse
 
+
+def load_config(config_path: str = None) -> dict:
+    """
+    加载配置文件
+    """
+    if config_path is None:
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        config_path = os.path.join(current_dir, "config.json")
+    
+    try:
+        with open(config_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        raise Exception(f"加载配置文件失败: {str(e)}")
 
 def load_prompt_template(template_path: str) -> str:
     """
@@ -70,7 +85,7 @@ def save_result(result: str, markdown_path: str, python_path: str, model: str, o
     except Exception as e:
         raise Exception(f"保存演讲稿到文件失败: {str(e)}")
 
-def process_content_to_speech(markdown_path: str, python_path: str, previous_speech_path: str, prompt_template_path: str, api_key: str, model: str = "gpt-4.5-preview-2025-02-27", output_dir: str = None) -> str:
+def process_content_to_speech(markdown_path: str, python_path: str, previous_speech_path: str, prompt_template_path: str, api_key: str, model: str = "gpt-4.5-preview", output_dir: str = None) -> str:
     """
     处理 Markdown 和 Python 文件内容并生成演讲稿
     1. 加载提示词模板
@@ -142,11 +157,14 @@ def main():
     else:
         print(f"使用默认输出目录: MASLab_generated_speech")
     
-    api_key = ''
+    # 从配置文件加载API key和model
+    config = load_config()
+    api_key = config['api_key']
+    model = config['model']
     
     try:
         # 处理文件
-        result, output_file = process_content_to_speech(args.markdown_path, args.python_path, previous_speech_path, prompt_template_path, api_key, output_dir=output_dir)
+        result, output_file = process_content_to_speech(args.markdown_path, args.python_path, previous_speech_path, prompt_template_path, api_key, model, output_dir=output_dir)
         print("生成的演讲稿：")
         print(result)
         print(f"\n演讲稿已保存到文件：{output_file}")

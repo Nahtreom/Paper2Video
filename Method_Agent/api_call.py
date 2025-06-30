@@ -1,6 +1,6 @@
 import base64
 import time
-import http.client
+from openai import OpenAI
 import json
 import socket
 import ssl
@@ -12,13 +12,16 @@ from PIL import Image
 # 常量定义
 MAX_RETRIES = 3
 TIMEOUT = 1200
-API_HOSTNAME = "api2.aigcbest.top"
-API_PATH = "/v1/chat/completions"
 
 class APIClient:
     def __init__(self, api_key: str, model: str = "gpt-4o"):
         self.api_key = api_key
         self.model = model
+        # 初始化 OpenAI 客户端
+        self.client = OpenAI(
+            api_key=api_key,
+            base_url="https://yeysai.com/v1/",
+        )
     
     def encode_image(self, image_path: str) -> str:
         """将图片编码为base64格式"""
@@ -153,104 +156,59 @@ class APIClient:
             except Exception as e:
                 print(f"处理图片 {img_path} 时出错: {str(e)}")
         
-        # 构建API请求payload
-        payload = {
-            "model": self.model,
-            "messages": [
-                {
-                    "role": "user",
-                    "content": content
-                }
-            ],
-            "temperature": 1
-        }
-        
         # 调用API
-        return self._call_api(payload)
+        return self._call_api(content)
     
     def call_api_with_text(self, text: str) -> str:
         """简单的纯文本API调用，不处理图片"""
-        # 构建API请求payload
-        payload = {
-            "model": self.model,
-            "messages": [
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": text
-                        }
-                    ]
-                }
-            ],
-            "temperature": 1
-        }
+        content = [
+            {
+                "type": "text",
+                "text": text
+            }
+        ]
         
         # 调用API
-        return self._call_api(payload)
+        return self._call_api(content)
     
-    def _call_api(self, payload: Dict[str, Any]) -> str:
+    def _call_api(self, content: List[Dict[str, Any]]) -> str:
         """发送API请求并处理响应"""
-        payload_str = json.dumps(payload)
-        headers = {
-            'Accept': 'application/json',
-            'Authorization': f'Bearer {self.api_key}',
-            'Content-Type': 'application/json'
-        }
-
         retry_count = 0
         response_content = None
 
         while retry_count < MAX_RETRIES:
             try:
-                conn = http.client.HTTPSConnection(API_HOSTNAME, timeout=TIMEOUT)
-                conn.request("POST", API_PATH, payload_str, headers)
-                res = conn.getresponse()
-
-                if res.status == 200:
-                    data = res.read()
-                    response_data = json.loads(data.decode("utf-8"))
-                    if response_data.get("choices") and response_data["choices"][0].get("message"):
-                        response_content = response_data["choices"][0]["message"].get("content")
-                    else:
-                        response_content = f"错误：响应中未找到预期的'content'。响应: {response_data}"
-                    break  # 成功，跳出重试循环
+                response = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {
+                            "role": "user",
+                            "content": content
+                        }
+                    ],
+                    max_tokens=1000,
+                    temperature=1
+                )
+                
+                if response.choices and response.choices[0].message:
+                    response_content = response.choices[0].message.content
                 else:
-                    error_data = res.read().decode('utf-8')
-                    print(f"API请求失败，状态码: {res.status} {res.reason}, 错误信息: {error_data}")
-                    if 500 <= res.status < 600:  # 服务器端错误，可以尝试重试
-                        raise Exception(f"服务器错误: {res.status} {res.reason}, 详情: {error_data}")
-                    else:  # 客户端错误 (4xx) 通常不可重试
-                        response_content = f"API错误: {res.status} {res.reason}, 详情: {error_data}"
-                        break
+                    response_content = f"错误：响应中未找到预期的'content'。响应: {response}"
+                break  # 成功，跳出重试循环
 
-            except (socket.timeout, ssl.SSLError, ConnectionResetError, ConnectionRefusedError, 
-                   http.client.RemoteDisconnected, http.client.NotConnected, 
-                   http.client.CannotSendRequest, http.client.ResponseNotReady) as e:
+            except Exception as e:
                 retry_count += 1
-                print(f"网络或连接错误 (尝试 {retry_count}/{MAX_RETRIES}): {e}")
+                print(f"API调用错误 (尝试 {retry_count}/{MAX_RETRIES}): {e}")
                 if retry_count >= MAX_RETRIES:
-                    response_content = f"错误：达到最大重试次数后连接失败。最后错误: {e}"
+                    response_content = f"错误：达到最大重试次数后API调用失败。最后错误: {e}"
                     break
                 print(f"等待 {5 * retry_count} 秒后重试...")  # 简单的退避策略
                 time.sleep(5 * retry_count)
-            except json.JSONDecodeError as e:
-                response_content = f"错误：无法解析API响应为JSON。错误: {e}, 响应内容: {data.decode('utf-8') if 'data' in locals() else 'N/A'}"
-                print(response_content)
-                break  # JSON解析错误通常不可重试
-            except Exception as e:
-                print(f"发生未知错误: {e}")
-                response_content = f"错误：发生未知错误。{e}"
-                break  # 其他未知错误，停止
-            finally:
-                if 'conn' in locals() and conn:
-                    conn.close()
 
         return response_content if response_content else "未能获取模型响应"
 
 
-def process_text_with_images(text: str, api_key: str, model: str = "gpt-4o", base_path: str = None) -> str:
+def process_text_with_images(text: str, api_key: str, model: str = "gpt-4.5-preview", base_path: str = None) -> str:
     """
     处理包含图片的文本
     
@@ -263,15 +221,9 @@ def process_text_with_images(text: str, api_key: str, model: str = "gpt-4o", bas
     client = APIClient(api_key=api_key, model=model)
     return client.call_api_with_text_and_images(text, base_path)
 
-def process_text(text: str, api_key: str, model: str = "gpt-4o") -> str:
+def process_text(text: str, api_key: str, model: str = "gpt-4.5-preview") -> str:
     """简单的纯文本处理函数"""
     client = APIClient(api_key=api_key, model=model)
     return client.call_api_with_text(text)
 
 
-if __name__ == "__main__":
-    key = ''
-    
-    text_result = process_text_with_images("![](test.jpg)", key)
-    print("", text_result)
-    

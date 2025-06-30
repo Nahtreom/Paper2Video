@@ -1,7 +1,22 @@
 import os
+import json
 import argparse
 from api_call import process_text
 
+
+def load_config(config_path: str = None) -> dict:
+    """
+    加载配置文件
+    """
+    if config_path is None:
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        config_path = os.path.join(current_dir, "config.json")
+    
+    try:
+        with open(config_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        raise Exception(f"加载配置文件失败: {str(e)}")
 
 def load_prompt_template(template_path: str) -> str:
     """
@@ -45,7 +60,7 @@ def save_result(result: str, markdown_path: str, model: str, output_dir: str) ->
     except Exception as e:
         raise Exception(f"保存结果到文件失败: {str(e)}")
 
-def process_markdown_with_prompt(markdown_path: str, prompt_template_path: str, api_key: str, output_dir: str, model: str = "gpt-4.5-preview-2025-02-27") -> str:
+def process_markdown_with_prompt(markdown_path: str, prompt_template_path: str, api_key: str, output_dir: str, model: str = "gpt-4.5-preview") -> str:
     """
     处理 Markdown 文件内容
     1. 加载提示词模板
@@ -105,11 +120,14 @@ def main():
     print(f"🧠 提示词模板: prompt_templates/Brain.txt")
     print("🔄 开始AI智能分割...")
     
-    api_key = ''
+    # 从配置文件加载API key和model
+    config = load_config()
+    api_key = config['api_key']
+    model = config['model']
     
     try:
         # 处理文件
-        result, output_file = process_markdown_with_prompt(args.input_file, prompt_template_path, api_key, args.output_dir)
+        result, output_file = process_markdown_with_prompt(args.input_file, prompt_template_path, api_key, args.output_dir, model)
         print("\n✅ 分割完成！")
         print("📝 处理结果预览：")
         print("-" * 50)

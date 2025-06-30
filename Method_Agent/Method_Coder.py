@@ -1,7 +1,22 @@
 import os
+import json
 from api_call import process_text_with_images
 import argparse
 
+
+def load_config(config_path: str = None) -> dict:
+    """
+    加载配置文件
+    """
+    if config_path is None:
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        config_path = os.path.join(current_dir, "config.json")
+    
+    try:
+        with open(config_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        raise Exception(f"加载配置文件失败: {str(e)}")
 
 def load_prompt_template(template_path: str) -> str:
     """
@@ -100,7 +115,7 @@ def save_result(result: str, markdown_path: str, model: str, output_dir: str = N
     except Exception as e:
         raise Exception(f"保存代码到文件失败: {str(e)}")
 
-def process_markdown_to_code(markdown_path: str, prompt_template_path: str, api_key: str, model: str = "gpt-4.5-preview-2025-02-27", output_dir: str = None) -> str:
+def process_markdown_to_code(markdown_path: str, prompt_template_path: str, api_key: str, model: str = "gpt-4.5-preview", output_dir: str = None) -> str:
     """
     处理 Markdown 文件内容并生成对应的Python代码
     1. 加载提示词模板
@@ -157,11 +172,15 @@ def main():
     # 设置文件路径
     current_dir = os.path.dirname(os.path.abspath(__file__))
     prompt_template_path = os.path.join(current_dir, "prompt_templates", "Coder.txt")
-    api_key = ''
+    
+    # 从配置文件加载API key和model
+    config = load_config()
+    api_key = config['api_key']
+    model = config['model']
     
     try:
         # 处理文件
-        result, output_file = process_markdown_to_code(args.markdown_path, prompt_template_path, api_key, output_dir=args.output_dir)
+        result, output_file = process_markdown_to_code(args.markdown_path, prompt_template_path, api_key, model, output_dir=args.output_dir)
         print(f"\n代码已保存到文件：{output_file}")
     except Exception as e:
         print(f"错误：{str(e)}")
