@@ -1,0 +1,3 @@
+# 页 1
+# 3 MASLab  
+MASLab is a unified, comprehensive, research-oriented codebase for LLM-based multi-agent systems (MAS). It consolidates over 20 published MAS methods with consistent inference basic configurations and unified evaluation protocols, facilitating researchers for fast and fair algorithmic comparisons. All methods are verified by comparing their intermediate outputs with the official implementations.

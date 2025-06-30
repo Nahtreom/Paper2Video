@@ -1,0 +1,13 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页3_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevWaterfall/3977891868_272474996_223132457.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页3_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevWaterfall/2852726489_417911822_116155201.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页3_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevWaterfall/2852726489_2652250845_4191333649.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页3_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevWaterfall/2852726489_1017256620_363666656.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页3_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevWaterfall/2852726489_573435906_2886634502.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页3_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevWaterfall/2852726489_2059665551_3279972448.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页3_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevWaterfall/2852726489_2361938866_1188464364.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页3_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevWaterfall/2852726489_3909086438_3931760711.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页3_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevWaterfall/2852726489_3471614801_141419667.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页3_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevWaterfall/2852726489_2408024828_1192550624.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页3_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevWaterfall/2852726489_1337610963_2167298464.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页3_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevWaterfall/2852726489_2264077861_2358810818.mp4'
