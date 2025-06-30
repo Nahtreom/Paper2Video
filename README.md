@@ -53,7 +53,3 @@ output/
 └── 论文名_generated_speech/   # 每页对应的配音文本
 ```
 
-
-### 流程示意图
-
-![alt text](imgs/2fc6d0a84bd1e4b3e3d9b2a6e3618e78.png) 
