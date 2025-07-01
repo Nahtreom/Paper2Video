@@ -1,3 +1,15 @@
+## 全流程
+
+现在可以使用全流程生成 manim 代码以及对应的讲解稿了。
+
+一个例子供大家用，Feel free to have fun!
+
+```bash
+python master_pipeline.py 2024.acl-long.810.md images
+python master_pipeline.py <论文markdown> <markdown对应的图片文件夹路径>
+```
+
+
 ## Chapter · Method
 
 ### 🛠️ 需要准备什么

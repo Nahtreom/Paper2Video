@@ -1,0 +1,18 @@
+你是一名学术写作助理，请你阅读以下完整文章内容，识别出其中属于以下四个部分的章节标题：
+
+1.Introduction
+
+2.方法（Methods / Methodology）
+
+3.实验（Experiments / Experimental Setup / Evaluation）
+
+4.结论（Conclusion / Discussion / Summary）
+
+请你以如下格式输出每个部分对应的章节标题（只给出大标题即可哦～）：
+
+Introduction: <对应章节标题>
+Methods: <对应章节标题>
+Experiments: <对应章节标题>
+Conclusion: <对应章节标题>
+
+以下是文章内容：

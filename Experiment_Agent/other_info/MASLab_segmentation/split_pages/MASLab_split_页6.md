@@ -1,0 +1,2 @@
+# 页 6
+Unified configurations. MASLab standardizes non-algorithmic configurations across all methods to ensure fair and consistent comparisons. This includes aligning LLM settings (e.g., maximum token limits) and tool parameters (e.g., timeout durations for code execution). Such uniformity eliminates confounding factors introduced by implementation-level differences, allowing performance comparisons to reflect true methodological distinctions.

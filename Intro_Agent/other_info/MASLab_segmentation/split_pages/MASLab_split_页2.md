@@ -1,0 +1,3 @@
+# 页 2
+# 3.1 Inference of MAS  
+In order to unify and streamline the diverse MAS codebases in the field, MASLab focuses on four key aspects during inference that ensure consistency and fairness across different methods: representation of MAS, inputs, configurations, and accessible resources. These aspects are designed to eliminate the disparities that have traditionally hindered cross-method comparisons and replication of results.

@@ -1,0 +1,5 @@
+# 页 2
+Although LLMs show a good understanding of natural and programming languages, efficiently transforming textual requirements into functional software in a single step remains a significant challenge. ChatDev thus adopts the core principles of the waterfall model, using a chat chain $( \mathcal { C } )$ with sequential phases $( \mathcal { P } )$ , each comprising sequential subtasks $( \mathcal { T } )$ . Specifically, ChatDev segments the software development process into three sequential phases: design, coding, and testing. The coding phase is further subdivided into subtasks of code writing and completion, and the testing phase is segmented into code review (static testing) and system testing (dynamic testing), as illustrated in Figure 2.
+
+![](ChatDev_images/748798460d843c6da70d8549109d2d1bc44bbfccba7ec7a66b1e0c7c118fe145.jpg)  
+Figure 2: Upon receiving a preliminary task requirement (e.g., “develop a Gomoku game”), these software agents engage in multi-turn communication and perform instruction-following along a chain-structured workflow, collaborating to execute a series of subtasks autonomously to craft a comprehensive solution.

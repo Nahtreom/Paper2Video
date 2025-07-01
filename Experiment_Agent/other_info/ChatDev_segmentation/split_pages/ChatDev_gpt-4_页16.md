@@ -1,0 +1,2 @@
+# 页 16
+Coding hallucinations frequently appear when the assistant struggles to precisely follow instructions, often due to the vagueness and generality of certain instructions that require multiple adjustments, making it challenging for agents to achieve full compliance. Inspired by this, we introduce communicative dehallucination, which encourages the assistant to actively seek more detailed suggestions from the instructor before delivering a formal response.

@@ -1,0 +1,9 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页1_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevFramework/3977891868_2318612750_223132457.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页1_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevFramework/2852726489_1180548266_3876327905.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页1_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevFramework/2852726489_330934009_90893213.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页1_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevFramework/2852726489_1372437291_1517895853.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页1_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevFramework/2852726489_626283810_2128077294.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页1_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevFramework/2852726489_1834757649_2091914595.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页1_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevFramework/2852726489_1734327179_2373424228.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页1_gpt-4.5-preview-2025-02-27/1080p60/partial_movie_files/ChatDevFramework/2852726489_3121209731_1550657223.mp4'

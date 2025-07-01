@@ -1,0 +1,11 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/manim_example/1080p60/partial_movie_files/ChatDevOverview/3977891868_2491314074_1066384606.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/manim_example/1080p60/partial_movie_files/ChatDevOverview/2852726489_2485689431_1636461256.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/manim_example/1080p60/partial_movie_files/ChatDevOverview/2852726489_3201849554_2084029112.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/manim_example/1080p60/partial_movie_files/ChatDevOverview/2852726489_2195587655_2870537331.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/manim_example/1080p60/partial_movie_files/ChatDevOverview/2852726489_3442218235_3642756454.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/manim_example/1080p60/partial_movie_files/ChatDevOverview/2852726489_3201849554_1779491464.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/manim_example/1080p60/partial_movie_files/ChatDevOverview/2852726489_3192027312_1650997525.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/manim_example/1080p60/partial_movie_files/ChatDevOverview/2852726489_1839128356_230638089.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/manim_example/1080p60/partial_movie_files/ChatDevOverview/2852726489_4194122721_3841814355.mp4'
+file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/manim_example/1080p60/partial_movie_files/ChatDevOverview/2852726489_2408024828_825345799.mp4'
