@@ -51,12 +51,12 @@ def process_markdown_folder(input_folder: str, output_dir: str):
     
     # 确保输入文件夹存在
     if not os.path.exists(input_folder):
-        print(f"\n❌ 错误：输入文件夹 '{input_folder}' 不存在")
+        print(f"\n[ERR] 错误：输入文件夹 '{input_folder}' 不存在")
         return
     
     # 创建输出目录（如果不存在）
     os.makedirs(output_dir, exist_ok=True)
-    print(f"📁 输出目录已准备: {output_dir}")
+    print(f"[DIR] 输出目录已准备: {output_dir}")
     
     # 获取所有markdown文件
     markdown_files = []
@@ -64,7 +64,7 @@ def process_markdown_folder(input_folder: str, output_dir: str):
         markdown_files.extend(glob.glob(os.path.join(input_folder, '**', ext), recursive=True))
     
     if not markdown_files:
-        print(f"\n⚠️  警告：在文件夹 '{input_folder}' 中没有找到markdown文件")
+        print(f"\n[WARN]  警告：在文件夹 '{input_folder}' 中没有找到markdown文件")
         return
     
     # 对文件进行排序
@@ -81,8 +81,8 @@ def process_markdown_folder(input_folder: str, output_dir: str):
     
     total_files = len(markdown_files)
     print(f"\n📝 找到 {total_files} 个markdown文件待处理")
-    print(f"⏱️  预估总时长: {total_files * 60}~{total_files * 90} 秒 (每个文件约60-90秒)")
-    print("\n📋 处理顺序：")
+    print(f"[TIME]  预估总时长: {total_files * 60}~{total_files * 90} 秒 (每个文件约60-90秒)")
+    print("\n[LIST] 处理顺序：")
     for i, file in enumerate(markdown_files, 1):
         relative_path = os.path.relpath(file, input_folder)
         print(f"   {i}. {relative_path}")
@@ -104,7 +104,7 @@ def process_markdown_folder(input_folder: str, output_dir: str):
         relative_path = os.path.relpath(markdown_file, input_folder)
         
         # 显示当前文件信息
-        print(f"\n📄 正在处理: {relative_path}")
+        print(f"\n[FILE] 正在处理: {relative_path}")
         print(f"⏳ 进度: {index}/{total_files}")
         
         # 显示进度条
@@ -114,7 +114,7 @@ def process_markdown_folder(input_folder: str, output_dir: str):
         file_start_time = time.time()
         
         try:
-            print(f"🔄 启动Manim代码生成器...")
+            print(f"[PROC] 启动Manim代码生成器...")
             subprocess.run([
                 sys.executable,
                 method_coder_path,
@@ -124,12 +124,12 @@ def process_markdown_folder(input_folder: str, output_dir: str):
             
             file_duration = time.time() - file_start_time
             success_count += 1
-            print(f"✅ 完成！耗时: {format_duration(file_duration)}")
+            print(f"[OK] 完成！耗时: {format_duration(file_duration)}")
             
         except subprocess.CalledProcessError as e:
             file_duration = time.time() - file_start_time
             failed_files.append(relative_path)
-            print(f"❌ 处理失败 (耗时: {format_duration(file_duration)})")
+            print(f"[ERR] 处理失败 (耗时: {format_duration(file_duration)})")
             print(f"   错误信息: {str(e)}")
             continue
         
@@ -156,9 +156,9 @@ def process_markdown_folder(input_folder: str, output_dir: str):
     
     # 打印总结报告
     print_separator()
-    print(f"\n🎯 代码生成完成! 成功生成 {success_count} 个Python代码文件")
+    print(f"\n[TARGET] 代码生成完成! 成功生成 {success_count} 个Python代码文件")
     print_separator("-")
-    print(f"📊 详细统计:")
+    print(f"[PROG] 详细统计:")
     print(f"   • 总文件数: {total_files}")
     print(f"   • 成功生成: {success_count}")
     print(f"   • 生成失败: {len(failed_files)}")
@@ -167,7 +167,7 @@ def process_markdown_folder(input_folder: str, output_dir: str):
     print(f"   • 平均耗时: {format_duration(avg_time)}/文件")
     
     if failed_files:
-        print(f"\n❌ 以下 {len(failed_files)} 个文件处理失败:")
+        print(f"\n[ERR] 以下 {len(failed_files)} 个文件处理失败:")
         for file in failed_files:
             print(f"   - {file}")
     

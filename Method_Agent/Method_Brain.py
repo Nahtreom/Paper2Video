@@ -103,7 +103,7 @@ def main():
     
     # 检查输入文件是否存在
     if not os.path.exists(args.input_file):
-        print(f"❌ 错误：输入文件 '{args.input_file}' 不存在")
+        print(f"[ERR] 错误：输入文件 '{args.input_file}' 不存在")
         return
     
     # 设置固定的提示词模板路径
@@ -112,13 +112,13 @@ def main():
     
     # 检查提示词模板是否存在
     if not os.path.exists(prompt_template_path):
-        print(f"❌ 错误：提示词模板文件 '{prompt_template_path}' 不存在")
+        print(f"[ERR] 错误：提示词模板文件 '{prompt_template_path}' 不存在")
         return
     
-    print(f"📄 输入文件: {args.input_file}")
-    print(f"📁 输出目录: {args.output_dir}")
+    print(f"[FILE] 输入文件: {args.input_file}")
+    print(f"[DIR] 输出目录: {args.output_dir}")
     print(f"🧠 提示词模板: prompt_templates/Brain.txt")
-    print("🔄 开始AI智能分割...")
+    print("[PROC] 开始AI智能分割...")
     
     # 从配置文件加载API key和model
     config = load_config()
@@ -128,14 +128,14 @@ def main():
     try:
         # 处理文件
         result, output_file = process_markdown_with_prompt(args.input_file, prompt_template_path, api_key, args.output_dir, model)
-        print("\n✅ 分割完成！")
+        print("\n[OK] 分割完成！")
         print("📝 处理结果预览：")
         print("-" * 50)
         print(result[:500] + "..." if len(result) > 500 else result)
         print("-" * 50)
         print(f"\n✨ 分割结果已保存到: {output_file}")
     except Exception as e:
-        print(f"❌ 分割失败: {str(e)}")
+        print(f"[ERR] 分割失败: {str(e)}")
 
 if __name__ == "__main__":
     main() 

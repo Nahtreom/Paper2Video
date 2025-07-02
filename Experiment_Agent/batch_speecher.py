@@ -106,21 +106,21 @@ def process_file_pairs(markdown_folder: str, python_folder: str, output_dir: str
     
     # 确保文件夹存在
     if not os.path.exists(markdown_folder):
-        print(f"\n❌ 错误：Markdown文件夹 '{markdown_folder}' 不存在")
+        print(f"\n[ERR] 错误：Markdown文件夹 '{markdown_folder}' 不存在")
         return
     if not os.path.exists(python_folder):
-        print(f"\n❌ 错误：Python文件夹 '{python_folder}' 不存在")
+        print(f"\n[ERR] 错误：Python文件夹 '{python_folder}' 不存在")
         return
     
     # 创建输出目录（如果不存在）
     os.makedirs(output_dir, exist_ok=True)
-    print(f"📁 输出目录已准备: {output_dir}")
+    print(f"[DIR] 输出目录已准备: {output_dir}")
     
     # 查找配对的文件
     matched_pairs, unmatched_markdowns = find_matching_files(markdown_folder, python_folder)
     
     if not matched_pairs:
-        print(f"\n⚠️  警告：没有找到配对的文件")
+        print(f"\n[WARN]  警告：没有找到配对的文件")
         return
     
     # 对配对按markdown文件名中的数字排序
@@ -128,17 +128,17 @@ def process_file_pairs(markdown_folder: str, python_folder: str, output_dir: str
     
     total_pairs = len(matched_pairs)
     print(f"\n📝 找到 {total_pairs} 对配对文件")
-    print(f"⏱️  预估总时长: {total_pairs * 45}~{total_pairs * 75} 秒 (每对文件约45-75秒)")
+    print(f"[TIME]  预估总时长: {total_pairs * 45}~{total_pairs * 75} 秒 (每对文件约45-75秒)")
     
     # 显示处理顺序
-    print("\n📋 处理顺序：")
+    print("\n[LIST] 处理顺序：")
     for i, (md_file, py_file) in enumerate(matched_pairs, 1):
         md_relative = os.path.relpath(md_file, markdown_folder)
         py_relative = os.path.relpath(py_file, python_folder)
-        print(f"   {i}. {md_relative} ↔️ {py_relative}")
+        print(f"   {i}. {md_relative} <-> {py_relative}")
     
     if unmatched_markdowns:
-        print("\n⚠️  以下Markdown文件未找到匹配的Python文件：")
+        print("\n[WARN]  以下Markdown文件未找到匹配的Python文件：")
         for md_file in unmatched_markdowns:
             print(f"   - {os.path.relpath(md_file, markdown_folder)}")
     
@@ -165,7 +165,7 @@ def process_file_pairs(markdown_folder: str, python_folder: str, output_dir: str
         py_relative = os.path.relpath(py_file, python_folder)
         
         # 显示当前文件对信息
-        print(f"\n📄 正在处理文件对: {os.path.basename(md_file)}")
+        print(f"\n[FILE] 正在处理文件对: {os.path.basename(md_file)}")
         print(f"⏳ 进度: {index}/{total_pairs}")
         print(f"📝 Markdown: {md_relative}")
         print(f"🐍 Python: {py_relative}")
@@ -178,7 +178,7 @@ def process_file_pairs(markdown_folder: str, python_folder: str, output_dir: str
         pair_start_time = time.time()
         
         try:
-            print(f"🔄 启动演讲稿生成器...")
+            print(f"[PROC] 启动演讲稿生成器...")
             
             # 构建命令参数，包含输出目录
             cmd_args = [
@@ -194,7 +194,7 @@ def process_file_pairs(markdown_folder: str, python_folder: str, output_dir: str
             
             pair_duration = time.time() - pair_start_time
             success_count += 1
-            print(f"✅ 完成！耗时: {format_duration(pair_duration)}")
+            print(f"[OK] 完成！耗时: {format_duration(pair_duration)}")
             
             # 计算当前文件生成的演讲稿路径，作为下一个文件的previous_speech_path
             md_base_name = os.path.splitext(os.path.basename(md_file))[0]
@@ -205,13 +205,13 @@ def process_file_pairs(markdown_folder: str, python_folder: str, output_dir: str
                 previous_speech_path = current_speech_path  # 更新为下一次使用
                 print(f"🔗 已为下一页面准备上下文: {os.path.basename(current_speech_path)}")
             else:
-                print(f"⚠️  警告：未找到生成的演讲稿文件 {current_speech_path}")
+                print(f"[WARN]  警告：未找到生成的演讲稿文件 {current_speech_path}")
                 print(f"   下一个文件将继续使用: {os.path.relpath(previous_speech_path, current_dir)}")
             
         except subprocess.CalledProcessError as e:
             pair_duration = time.time() - pair_start_time
             failed_pairs.append((md_relative, py_relative))
-            print(f"❌ 处理失败 (耗时: {format_duration(pair_duration)})")
+            print(f"[ERR] 处理失败 (耗时: {format_duration(pair_duration)})")
             print(f"   错误信息: {str(e)}")
             print(f"   下一个文件将继续使用: {os.path.relpath(previous_speech_path, current_dir)}")
             continue
@@ -239,9 +239,9 @@ def process_file_pairs(markdown_folder: str, python_folder: str, output_dir: str
     
     # 打印总结报告
     print_separator()
-    print(f"\n🎯 演讲稿生成完成! 成功生成 {success_count} 个演讲稿文件")
+    print(f"\n[TARGET] 演讲稿生成完成! 成功生成 {success_count} 个演讲稿文件")
     print_separator("-")
-    print(f"📊 详细统计:")
+    print(f"[PROG] 详细统计:")
     print(f"   • 总文件对数: {total_pairs}")
     print(f"   • 成功生成: {success_count}")
     print(f"   • 生成失败: {len(failed_pairs)}")
@@ -250,7 +250,7 @@ def process_file_pairs(markdown_folder: str, python_folder: str, output_dir: str
     print(f"   • 平均耗时: {format_duration(avg_time)}/对文件")
     
     if failed_pairs:
-        print(f"\n❌ 以下 {len(failed_pairs)} 对文件处理失败:")
+        print(f"\n[ERR] 以下 {len(failed_pairs)} 对文件处理失败:")
         for md_file, py_file in failed_pairs:
             print(f"   - Markdown: {md_file}")
             print(f"     Python: {py_file}")

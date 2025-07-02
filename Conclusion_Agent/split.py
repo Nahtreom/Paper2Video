@@ -29,7 +29,7 @@ def split_markdown_by_pages(input_file: str, output_dir: str):
             output_path = os.path.join(output_dir, output_filename)
             with open(output_path, 'w', encoding='utf-8') as out_file:
                 out_file.write(page.strip())
-            print(f"✅ 生成：{output_filename}")
+            print(f"[OK] 生成：{output_filename}")
 
 def main():
     """
@@ -44,19 +44,19 @@ def main():
     
     # 检查输入文件是否存在
     if not os.path.exists(args.input_file):
-        print(f"❌ 错误：输入文件 '{args.input_file}' 不存在")
+        print(f"[ERR] 错误：输入文件 '{args.input_file}' 不存在")
         return
     
-    print(f"📄 输入文件: {args.input_file}")
-    print(f"📁 输出目录: {args.output_dir}")
-    print("🔄 开始分割文件...")
+    print(f"[FILE] 输入文件: {args.input_file}")
+    print(f"[DIR] 输出目录: {args.output_dir}")
+    print("[PROC] 开始分割文件...")
     
     try:
         # 执行分割操作
         split_markdown_by_pages(args.input_file, args.output_dir)
         print(f"\n✨ 分割完成！文件已保存到: {args.output_dir}")
     except Exception as e:
-        print(f"❌ 分割失败: {str(e)}")
+        print(f"[ERR] 分割失败: {str(e)}")
 
 if __name__ == '__main__':
     main()
