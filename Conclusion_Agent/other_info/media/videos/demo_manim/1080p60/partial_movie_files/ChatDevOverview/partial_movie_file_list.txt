@@ -1,4 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/demo_manim/1080p60/partial_movie_files/ChatDevOverview/3977891868_1775077688_2231687871.mp4'
-file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/demo_manim/1080p60/partial_movie_files/ChatDevOverview/2852726489_3681841299_2235060869.mp4'
-file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/demo_manim/1080p60/partial_movie_files/ChatDevOverview/2852726489_746093948_2358810818.mp4'

@@ -1,5 +1,0 @@
-# 页 12
-In the next time step $t + 1$ , the instructor utilizes the current memory to generate a new instruction $\mathcal { T } _ { t + 1 } ^ { i }$ , which is then conveyed to the assistant to produce a new response $\mathcal { A } _ { t + 1 } ^ { i }$ . The short-term memory iteratively updates until the number of communications reaches the upper limit $| \mathcal { M } ^ { i } |$ :  
-$$
-\begin{array} { r } { \mathscr { T } _ { t + 1 } ^ { i } = \mathscr { T } ( \mathcal { M } _ { t } ^ { i } ) , \ \mathscr { A } _ { t + 1 } ^ { i } = \mathscr { A } ( \mathcal { M } _ { t } ^ { i } , \mathscr { T } _ { t + 1 } ^ { i } ) } \\ { \mathscr { M } _ { t + 1 } ^ { i } = \mathscr { M } _ { t } ^ { i } \cup ( \mathscr { T } _ { t + 1 } ^ { i } , \mathscr { A } _ { t + 1 } ^ { i } ) \quad } \end{array}
-$$

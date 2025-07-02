@@ -1,5 +1,0 @@
-# 页 1
-We introduce ChatDev, a chat-powered softwaredevelopment framework that integrates multiple "software agents" with various social roles (e.g., requirements analysts, professional programmers and test engineers) collaborating in the core phases of the software life cycle, see Figure 1. Technically, to facilitate cooperative communication, ChatDev introduces chat chain to further break down each phase into smaller and manageable subtasks, which guides multi-turn communications between different roles to propose and validate solutions for each subtask. In addition, to alleviate unexpected hallucinations, a communicative pattern named communicative dehallucination is devised, wherein agents request more detailed information before responding directly and then continue the next round of communication based on these details.
-
-![](ChatDev_images/79021ce9de0bd97d75fc696a609821851154d2323b1123cd2b2b71870afbd198.jpg)  
-Figure 1: ChatDev, a chat-powered software development framework, integrates LLM agents with various social roles, working autonomously to develop comprehensive solutions via multi-agent collaboration.

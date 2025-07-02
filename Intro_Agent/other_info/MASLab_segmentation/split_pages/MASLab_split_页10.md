@@ -1,2 +1,0 @@
-# 页 10
-ble 4) confirms the higher reliability of LLM-based evaluations, with both the two-step and xVerify approaches achieving over $98 \%$ agreement with human judgments, whereas the best-performing rule-based method reaches only $65 \%$ . Considering performance-cost trade-off, MASLab defaults to using xVerify, while remaining open to improvements as evaluation methodologies evolve.

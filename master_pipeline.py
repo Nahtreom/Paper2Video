@@ -227,34 +227,38 @@ def step1_section_splitting(paper_path, sections_dir):
     return section_files
 
 def step2_process_agents(section_files, images_dir, dirs):
-    """步骤2: 依次调用各个Agent处理对应章节"""
-    print_step(2, "Agent处理流程", "依次调用Intro、Method、Experiment、Conclusion Agent")
+    """步骤2: 依次调用Chapter_Agent处理对应章节"""
+    print_step(2, "Chapter_Agent处理流程", "使用Chapter_Agent分别处理Introduction、Methods、Experiments、Conclusion章节")
     
     # Agent配置
     agents_config = [
         {
             'name': 'Introduction',
-            'folder': 'Intro_Agent',
+            'folder': 'Chapter_Agent',
             'output_dir': dirs['intro_output'],
-            'section_key': 'Introduction'
+            'section_key': 'Introduction',
+            'chapter_type': 'Intro'
         },
         {
             'name': 'Methods',
-            'folder': 'Method_Agent', 
+            'folder': 'Chapter_Agent', 
             'output_dir': dirs['method_output'],
-            'section_key': 'Methods'
+            'section_key': 'Methods',
+            'chapter_type': 'Method'
         },
         {
             'name': 'Experiments',
-            'folder': 'Experiment_Agent',
+            'folder': 'Chapter_Agent',
             'output_dir': dirs['experiment_output'],
-            'section_key': 'Experiments'
+            'section_key': 'Experiments',
+            'chapter_type': 'Experiment'
         },
         {
             'name': 'Conclusion',
-            'folder': 'Conclusion_Agent',
+            'folder': 'Chapter_Agent',
             'output_dir': dirs['conclusion_output'],
-            'section_key': 'Conclusion'
+            'section_key': 'Conclusion',
+            'chapter_type': 'Conclusion'
         }
     ]
     
@@ -265,8 +269,10 @@ def step2_process_agents(section_files, images_dir, dirs):
         agent_folder = agent_config['folder']
         output_dir = agent_config['output_dir']
         section_key = agent_config['section_key']
+        chapter_type = agent_config['chapter_type']
         
         print(f"\n[BOT] 处理 {agent_name} Agent ({i}/4)")
+        print(f"   章节类型: {chapter_type}")
         
         # 检查章节文件是否存在
         if section_key not in section_files:
@@ -285,10 +291,11 @@ def step2_process_agents(section_files, images_dir, dirs):
             print(f"[WARN]  跳过 {agent_name} Agent: pipeline.py不存在")
             continue
         
-        # 构建命令（设置环境变量跳过交互）
+        # 构建命令（添加章节参数）
         command = [
             sys.executable, "pipeline.py", 
             os.path.abspath(section_file),
+            "--chapter", chapter_type,
             "--output-base-dir", os.path.abspath(output_dir),
             "--images-dir", os.path.abspath(images_dir)
         ]
@@ -543,10 +550,10 @@ def print_final_summary(dirs, paper_path, processed_results, start_time):
     
     print(f"\n[OPEN] 生成的文件结构:")
     print(f"   ├── [DIR] sections/ (论文章节切分)")
-    print(f"   ├── [DIR] intro_agent_output/ (Introduction处理结果)")
-    print(f"   ├── [DIR] method_agent_output/ (Methods处理结果)")
-    print(f"   ├── [DIR] experiment_agent_output/ (Experiments处理结果)")
-    print(f"   ├── [DIR] conclusion_agent_output/ (Conclusion处理结果)")
+    print(f"   ├── [DIR] intro_agent_output/ (Introduction章节处理结果)")
+    print(f"   ├── [DIR] method_agent_output/ (Methods章节处理结果)")
+    print(f"   ├── [DIR] experiment_agent_output/ (Experiments章节处理结果)")
+    print(f"   ├── [DIR] conclusion_agent_output/ (Conclusion章节处理结果)")
     print(f"   └── [DIR] final_results/ (整理后的最终结果)")
     
     print_separator("=")

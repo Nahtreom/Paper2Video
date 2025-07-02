@@ -9,6 +9,16 @@
 import os
 import sys
 import json
+"""
+文档处理程序
+
+简化版本：只需要输入markdown路径和输出目录，从config.json读取配置，从txt文件读取prompt
+添加章节切分功能
+"""
+
+import os
+import sys
+import json
 import re
 from api_call import process_text
 
@@ -16,11 +26,10 @@ def load_config():
     """从config.json加载配置"""
     config_file = "config.json"
     if not os.path.exists(config_file):
-        # 创建默认配置文件
+        # 创建默认配置文件（移除prompt_template_file配置项）
         default_config = {
             "api_key": "your-api-key-here",
-            "model": "gpt-4.5-preview",
-            "prompt_template_file": "prompt_template.txt"
+            "model": "gpt-4.5-preview"
         }
         with open(config_file, 'w', encoding='utf-8') as f:
             json.dump(default_config, f, ensure_ascii=False, indent=2)
@@ -41,38 +50,47 @@ def load_config():
         print(f"读取配置文件失败: {e}")
         sys.exit(1)
 
-def load_prompt_template(template_file: str) -> str:
-    """从txt文件加载prompt模板"""
+def load_prompt_template() -> str:
+    """从固定路径加载prompt模板"""
+    template_file = "prompt_template/Central.txt"
+    
+    # 确保prompt_template目录存在
+    template_dir = os.path.dirname(template_file)
+    if not os.path.exists(template_dir):
+        os.makedirs(template_dir, exist_ok=True)
+        print(f"创建提示词目录: {template_dir}")
+    
     if not os.path.exists(template_file):
-        # 创建默认的prompt模板文件
-        default_prompt = """你是一个智能助手，负责处理和分析技术文档内容。
+        # 创建默认的prompt模板文件（使用Central.txt的内容）
+        default_prompt = """你是一名学术写作助理，请你阅读以下完整文章内容，识别出其中属于以下四个部分的章节标题：
 
-请根据以下规则对输入的内容进行处理：
+1.Introduction
 
-1. 仔细阅读并理解输入的文档内容
-2. 保持原文的准确性和完整性
-3. 根据文档的结构和语义进行合理的分析
-4. 提供清晰、有条理的输出结果
-5. 如果文档中包含图片，请根据图片内容进行相应的描述和分析
+2.方法（Methods / Methodology）
 
-输出格式要求：
-- 使用清晰的中文表达
-- 保持逻辑结构完整
-- 突出重点内容
-- 确保输出内容的实用性
+3.实验（Experiments / Experimental Setup / Evaluation）
 
-请严格按照上述规范工作，提供高质量的分析结果。"""
+4.结论（Conclusion / Discussion / Summary）
+
+请你以如下格式输出每个部分对应的章节标题（只给出大标题即可哦～）：
+
+Introduction: <对应章节标题>
+Methods: <对应章节标题>
+Experiments: <对应章节标题>
+Conclusion: <对应章节标题>
+
+以下是文章内容："""
         
         with open(template_file, 'w', encoding='utf-8') as f:
             f.write(default_prompt)
-        print(f"已创建默认prompt模板文件 {template_file}")
+        print(f"已创建默认prompt模板文件: {template_file}")
     
     try:
         with open(template_file, 'r', encoding='utf-8') as f:
             return f.read().strip()
     except Exception as e:
         print(f"读取prompt模板文件失败: {e}")
-        return "请分析以下文档内容："
+        return "请分析以下学术论文内容并识别章节结构："
 
 def read_file_content(file_path: str) -> str:
     """读取文件内容"""
@@ -257,10 +275,9 @@ def process_document(markdown_path: str, output_dir: str, config: dict) -> str:
     print(f"正在读取文档: {markdown_path}")
     document_content = read_file_content(markdown_path)
     
-    # 加载prompt模板
-    prompt_template_file = config.get("prompt_template_file", "prompt_template.txt")
-    print(f"正在加载prompt模板: {prompt_template_file}")
-    prompt_template = load_prompt_template(prompt_template_file)
+    # 加载prompt模板（使用固定路径）
+    print(f"正在加载prompt模板: prompt_template/Central.txt")
+    prompt_template = load_prompt_template()
     
     # 构建完整的prompt
     full_prompt = f"{prompt_template}\n\n\n{document_content}"

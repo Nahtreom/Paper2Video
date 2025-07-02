@@ -1,2 +1,0 @@
-# 页 15
-LLM hallucinations manifest when models generate outputs that are nonsensical, factually incorrect, or inaccurate (Dhuliawala et al., 2023; Zhang et al., 2023b). This issue is particularly concerning in software development, where programming languages demand precise syntax—the absence of even a single line can lead to system failure. We have observed that LLMs often produce coding hallucinations, which encompass potential issues like incomplete implementations, unexecutable code, and inconsistencies that don’t meet requirements.

@@ -1,8 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/example/1080p60/partial_movie_files/ChatDevAnimation/3977891868_3360087549_223132457.mp4'
-file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/example/1080p60/partial_movie_files/ChatDevAnimation/2852726489_1557813474_278991295.mp4'
-file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/example/1080p60/partial_movie_files/ChatDevAnimation/2852726489_2161417819_2342538628.mp4'
-file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/example/1080p60/partial_movie_files/ChatDevAnimation/2852726489_2652358298_1167215387.mp4'
-file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/example/1080p60/partial_movie_files/ChatDevAnimation/2852726489_3746296024_3728780213.mp4'
-file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/example/1080p60/partial_movie_files/ChatDevAnimation/2852726489_2585026586_659481312.mp4'
-file 'file:/Users/hendrick/Desktop/Method_Agent/media/videos/example/1080p60/partial_movie_files/ChatDevAnimation/2852726489_2408024828_1228759281.mp4'

@@ -1,2 +1,0 @@
-# 页 4
-Consistent inputs. MASLab standardizes input preprocessing for all MAS methods, ensuring fair comparisons by eliminating discrepancies. For instance, prior implementations of MapCoder [39], Reflexion [51], and EvoMAC [40] use different preprocessing on the MBPP dataset, making performance differences hard to interpret. MASLab’s unified preprocessing pipeline ensures that all methods operate on identical data, relieving researchers of the need to manually prepare datasets.

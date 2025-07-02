@@ -1,4 +1,0 @@
-# 页 7
-Instead of performing a single attention function with  $d_{\mathrm{model}}$  - dimensional keys, values and queries, we found it beneficial to linearly project the queries, keys and values  $h$  times with different, learned linear projections to  $d_{k},d_{k}$  and  $d_{v}$  dimensions, respectively. On each of these projected versions of queries, keys and values we then perform the attention function in parallel, yielding  $d_{v}$  - dimensional output values. These are concatenated and once again projected, resulting in the final values, as depicted in Figure 2.
-
-Multi- head attention allows the model to jointly attend to information from different representation subspaces at different positions. With a single attention head, averaging inhibits this.

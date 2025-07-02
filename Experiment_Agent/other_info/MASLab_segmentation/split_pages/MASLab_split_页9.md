@@ -1,5 +1,0 @@
-# 页 9
-Surprisingly, our empirical results on MATH [55] benchmark (Figure 3) show that evaluation protocol choice significantly affects both absolute scores and method rankings. For instance, under the LLM-based two-step evaluation, MAV [38] ranks 1st, but drops to 10th under DyLAN’s rulebased scheme [31]. Conversely, DyLAN itself rises from 5th to 3rd. Similarly, AgentVerse’s accuracy drops from 79.0 to 25.6 when switching from the LLM-based two-step evaluation to the Hendrycks-style rule-based metric [55]. Manual inspection (Ta  
-
-![](MASLab_images/d93671e9de6b3404f6fa9f3b2889d6985422eda27337752cfe2e47e0dfcbfbc6.jpg)  
-Figure 3: Evaluation (5 different protocols) of methods using Llama-3.3-70B-Instruct as the backend on MATH. The rankings of methods could be significantly different under different evaluation protocols, emphasizing the need for accurate and unified evaluation protocols.

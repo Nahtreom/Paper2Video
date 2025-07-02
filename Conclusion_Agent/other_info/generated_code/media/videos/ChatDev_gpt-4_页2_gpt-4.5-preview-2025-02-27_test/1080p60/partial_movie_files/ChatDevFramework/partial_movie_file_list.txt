@@ -1,4 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页2_gpt-4.5-preview-2025-02-27_test/1080p60/partial_movie_files/ChatDevFramework/3977891868_140713141_3590795024.mp4'
-file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页2_gpt-4.5-preview-2025-02-27_test/1080p60/partial_movie_files/ChatDevFramework/2852726489_773814924_1488178850.mp4'
-file 'file:/Users/hendrick/Desktop/Method_Agent/generated_code/media/videos/ChatDev_gpt-4_页2_gpt-4.5-preview-2025-02-27_test/1080p60/partial_movie_files/ChatDevFramework/2852726489_2428774157_2476980710.mp4'

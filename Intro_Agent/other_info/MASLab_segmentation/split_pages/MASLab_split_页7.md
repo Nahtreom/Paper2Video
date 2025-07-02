@@ -1,3 +1,0 @@
-# 页 7
-# 3.2 Evaluation of MAS  
-Accurate, automated, and scalable evaluation protocols are always essential for all AI fields. However, existing MAS works often adopt inconsistent evaluation procedures, introducing confounding variables that hinder fair comparison. For example, certain methods may be tailored to specific evaluation heuristics (e.g., rule-based string matching) which can be gamed by emphasizing formatspecific prompts for agents, thereby inflating performance without reflecting true intelligence gains. These issues underscore the need for standardized, robust evaluation protocols that reflect genuine task-solving capabilities rather than formatting tricks.
