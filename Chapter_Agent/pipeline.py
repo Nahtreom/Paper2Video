@@ -311,7 +311,7 @@ def collect_generated_files(dirs):
         for f in sorted(page_files):
             files[f] = {
                 'path': os.path.join(split_pages_dir, f),
-                'type': '📝 页面文件',
+                'type': ' 页面文件',
                 'category': 'split_pages'
             }
     
@@ -322,7 +322,7 @@ def collect_generated_files(dirs):
         for f in sorted(code_files):
             files[f] = {
                 'path': os.path.join(code_dir, f),
-                'type': '💻 代码文件',
+                'type': ' 代码文件',
                 'category': 'generated_code'
             }
     
@@ -333,7 +333,7 @@ def collect_generated_files(dirs):
         for f in sorted(speech_files):
             files[f] = {
                 'path': os.path.join(speech_dir, f),
-                'type': '🎤 演讲稿',
+                'type': ' 演讲稿',
                 'category': 'generated_speech'
             }
     
@@ -359,9 +359,9 @@ def print_file_list(files):
     # 按类别分组显示
     categories = {
         'segmentation': '[FILE] 分割文档',
-        'split_pages': '📝 页面文件', 
-        'generated_code': '💻 代码文件',
-        'generated_speech': '🎤 演讲稿'
+        'split_pages': ' 页面文件', 
+        'generated_code': ' 代码文件',
+        'generated_speech': ' 演讲稿'
     }
     
     for category, category_name in categories.items():
@@ -376,7 +376,7 @@ def print_file_list(files):
 
 def interactive_file_editor(files):
     """交互式文件编辑器"""
-    print("🔧 进入交互式文件查看/编辑模式")
+    print(" 进入交互式文件查看/编辑模式")
     print("   • 输入文件名 (支持部分匹配) 来查看或编辑文件")
     print("   • 输入 'list' 或 'ls' 重新显示文件列表") 
     print("   • 输入 'q' 退出交互模式")
@@ -499,9 +499,9 @@ def print_final_summary(dirs, paper_path, start_time):
         speech_count = len([f for f in os.listdir(dirs['generated_speech']) if f.endswith('.txt')])
         
         print(f"\n[PROG] 生成统计:")
-        print(f"   📝 页面数量: {page_count}")
-        print(f"   💻 代码文件: {code_count}")
-        print(f"   🎤 演讲稿: {speech_count}")
+        print(f"    页面数量: {page_count}")
+        print(f"    代码文件: {code_count}")
+        print(f"    演讲稿: {speech_count}")
         
         if page_count == code_count == speech_count:
             print(f"   [OK] 所有文件生成完整，页面匹配完美!")
@@ -554,7 +554,7 @@ def main():
     
     try:
         print_separator("=")
-        print(f"🚀 Chapter_Agent Pipeline 启动")
+        print(f" Chapter_Agent Pipeline 启动")
         print(f"[FILE] 输入文件: {args.paper_path}")
         print(f"[CHAPTER] 章节类型: {args.chapter}")
         print(f"[DIR] 输出目录: {args.output_base_dir}")
@@ -598,7 +598,7 @@ def main():
         skip_interactive = os.environ.get('SKIP_INTERACTIVE', '').lower() in ['1', 'true', 'yes']
         
         if skip_interactive:
-            print("🚀 检测到SKIP_INTERACTIVE环境变量，跳过交互式编辑")
+            print(" 检测到SKIP_INTERACTIVE环境变量，跳过交互式编辑")
         else:
             # 进入交互式编辑模式
             if generated_files:

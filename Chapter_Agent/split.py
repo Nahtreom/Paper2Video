@@ -54,7 +54,7 @@ def main():
     try:
         # 执行分割操作
         split_markdown_by_pages(args.input_file, args.output_dir)
-        print(f"\n✨ 分割完成！文件已保存到: {args.output_dir}")
+        print(f"\n 分割完成！文件已保存到: {args.output_dir}")
     except Exception as e:
         print(f"[ERR] 分割失败: {str(e)}")
 
