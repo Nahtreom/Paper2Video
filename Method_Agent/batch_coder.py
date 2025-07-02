@@ -80,7 +80,7 @@ def process_markdown_folder(input_folder: str, output_dir: str):
     markdown_files.sort(key=get_sort_key)
     
     total_files = len(markdown_files)
-    print(f"\n📝 找到 {total_files} 个markdown文件待处理")
+    print(f"\n  找到 {total_files} 个markdown文件待处理")
     print(f"[TIME]  预估总时长: {total_files * 60}~{total_files * 90} 秒 (每个文件约60-90秒)")
     print("\n[LIST] 处理顺序：")
     for i, file in enumerate(markdown_files, 1):
@@ -97,7 +97,7 @@ def process_markdown_folder(input_folder: str, output_dir: str):
     failed_files = []
     start_time = time.time()
     
-    print(f"\n🚀 开始批量代码生成...")
+    print(f"\n  开始批量代码生成...")
     
     # 处理每个markdown文件
     for index, markdown_file in enumerate(markdown_files, 1):
@@ -105,7 +105,7 @@ def process_markdown_folder(input_folder: str, output_dir: str):
         
         # 显示当前文件信息
         print(f"\n[FILE] 正在处理: {relative_path}")
-        print(f"⏳ 进度: {index}/{total_files}")
+        print(f"  进度: {index}/{total_files}")
         
         # 显示进度条
         print_progress_bar(index-1, total_files, prefix="总体进度")
@@ -171,7 +171,7 @@ def process_markdown_folder(input_folder: str, output_dir: str):
         for file in failed_files:
             print(f"   - {file}")
     
-    print(f"\n✨ 生成的代码已保存到: {os.path.relpath(output_dir, os.getcwd())}")
+    print(f"\n  生成的代码已保存到: {os.path.relpath(output_dir, os.getcwd())}")
     print_separator()
 
 def main():

@@ -127,7 +127,7 @@ def process_file_pairs(markdown_folder: str, python_folder: str, output_dir: str
     matched_pairs.sort(key=lambda x: extract_page_number(x[0]))
     
     total_pairs = len(matched_pairs)
-    print(f"\n📝 找到 {total_pairs} 对配对文件")
+    print(f"\n  找到 {total_pairs} 对配对文件")
     print(f"[TIME]  预估总时长: {total_pairs * 45}~{total_pairs * 75} 秒 (每对文件约45-75秒)")
     
     # 显示处理顺序
@@ -157,7 +157,7 @@ def process_file_pairs(markdown_folder: str, python_folder: str, output_dir: str
     previous_speech_path = default_previous_speech  # 第一个文件使用默认路径
     start_time = time.time()
     
-    print(f"\n🚀 开始批量演讲稿生成...")
+    print(f"\n  开始批量演讲稿生成...")
     
     # 处理每对文件
     for index, (md_file, py_file) in enumerate(matched_pairs, 1):
@@ -166,10 +166,10 @@ def process_file_pairs(markdown_folder: str, python_folder: str, output_dir: str
         
         # 显示当前文件对信息
         print(f"\n[FILE] 正在处理文件对: {os.path.basename(md_file)}")
-        print(f"⏳ 进度: {index}/{total_pairs}")
-        print(f"📝 Markdown: {md_relative}")
-        print(f"🐍 Python: {py_relative}")
-        print(f"📖 上下文: {os.path.relpath(previous_speech_path, current_dir)}")
+        print(f"  进度: {index}/{total_pairs}")
+        print(f"  Markdown: {md_relative}")
+        print(f"  Python: {py_relative}")
+        print(f"  上下文: {os.path.relpath(previous_speech_path, current_dir)}")
         
         # 显示进度条
         print_progress_bar(index-1, total_pairs, prefix="总体进度")
@@ -255,7 +255,7 @@ def process_file_pairs(markdown_folder: str, python_folder: str, output_dir: str
             print(f"   - Markdown: {md_file}")
             print(f"     Python: {py_file}")
     
-    print(f"\n✨ 生成的演讲稿已保存到: {os.path.relpath(output_dir, os.getcwd())}")
+    print(f"\n  生成的演讲稿已保存到: {os.path.relpath(output_dir, os.getcwd())}")
     print_separator()
     print_separator()
 

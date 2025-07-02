@@ -117,7 +117,7 @@ def main():
     
     print(f"[FILE] 输入文件: {args.input_file}")
     print(f"[DIR] 输出目录: {args.output_dir}")
-    print(f"🧠 提示词模板: prompt_templates/Brain.txt")
+    print(f"  提示词模板: prompt_templates/Brain.txt")
     print("[PROC] 开始AI智能分割...")
     
     # 从配置文件加载API key和model
@@ -129,11 +129,11 @@ def main():
         # 处理文件
         result, output_file = process_markdown_with_prompt(args.input_file, prompt_template_path, api_key, args.output_dir, model)
         print("\n[OK] 分割完成！")
-        print("📝 处理结果预览：")
+        print("  处理结果预览：")
         print("-" * 50)
         print(result[:500] + "..." if len(result) > 500 else result)
         print("-" * 50)
-        print(f"\n✨ 分割结果已保存到: {output_file}")
+        print(f"\n  分割结果已保存到: {output_file}")
     except Exception as e:
         print(f"[ERR] 分割失败: {str(e)}")
 
